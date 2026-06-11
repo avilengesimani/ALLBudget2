@@ -24,6 +24,18 @@
 
         <!-- ✅ ADD THIS LINE -->
         <activity android:name=".MonthlySummaryActivity" />
+        <activity android:name=".GraphActivity"/>
+
+        <activity android:name=".BudgetProgressActivity"/>
+
+        <activity android:name=".BadgeActivity"/>
+        <activity android:name=".GraphActivity"/>
+
+        <activity android:name=".BudgetProgressActivity"/>
+
+        <activity android:name=".BadgeActivity"/>
+
+        <activity android:name=".GoalActivity"/>
 
     </application>
 

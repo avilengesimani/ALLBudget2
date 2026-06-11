@@ -55,6 +55,34 @@
             android:text="+ Add Expense"
             android:textColor="#FFFFFF"
             android:backgroundTint="#4CAF50"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnGraph"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="View Spending Graph"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnProgress"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Budget Progress"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnBadges"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="My Badges"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btnGoals"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Set Budget Goals"
             android:layout_marginBottom="12dp"/>
 
         <ScrollView

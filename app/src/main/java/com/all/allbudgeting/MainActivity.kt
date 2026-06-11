@@ -13,28 +13,101 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnAddExpense = findViewById<Button>(R.id.btnAddExpense)
+        val btnAddExpense =
+            findViewById<Button>(R.id.btnAddExpense)
 
-        val navHome = findViewById<TextView>(R.id.navHome)
-        val navAdd = findViewById<TextView>(R.id.navAdd)
-        val navSummary = findViewById<TextView>(R.id.navSummary)
+        val btnGraph =
+            findViewById<Button>(R.id.btnGraph)
 
-        // Go to Add Expense screen
-        btnAddExpense.setOnClickListener {
-            startActivity(Intent(this, AddExpenseActivity::class.java))
+        val btnProgress =
+            findViewById<Button>(R.id.btnProgress)
+
+        val btnBadges =
+            findViewById<Button>(R.id.btnBadges)
+
+        val btnGoals =
+            findViewById<Button>(R.id.btnGoals)
+
+        val navHome =
+            findViewById<TextView>(R.id.navHome)
+
+        val navAdd =
+            findViewById<TextView>(R.id.navAdd)
+
+        val navSummary =
+            findViewById<TextView>(R.id.navSummary)
+
+        // Goals Screen
+        btnGoals.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    GoalActivity::class.java
+                )
+            )
         }
 
-        // Bottom navigation
+        // Add Expense Screen
+        btnAddExpense.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    AddExpenseActivity::class.java
+                )
+            )
+        }
+
+        // Graph Screen
+        btnGraph.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    GraphActivity::class.java
+                )
+            )
+        }
+
+        // Budget Progress Screen
+        btnProgress.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    BudgetProgressActivity::class.java
+                )
+            )
+        }
+
+        // Badges Screen
+        btnBadges.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    BadgeActivity::class.java
+                )
+            )
+        }
+
+        // Bottom Navigation
         navHome.setOnClickListener {
             loadDashboard()
         }
 
         navAdd.setOnClickListener {
-            startActivity(Intent(this, AddExpenseActivity::class.java))
+            startActivity(
+                Intent(
+                    this,
+                    AddExpenseActivity::class.java
+                )
+            )
         }
 
         navSummary.setOnClickListener {
-            startActivity(Intent(this, MonthlySummaryActivity::class.java))
+            startActivity(
+                Intent(
+                    this,
+                    MonthlySummaryActivity::class.java
+                )
+            )
         }
     }
 
@@ -45,8 +118,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadDashboard() {
 
-        val tvExpenseList = findViewById<TextView>(R.id.tvExpenseList)
-        val healthGauge = findViewById<ProgressBar>(R.id.healthGauge)
+        val tvExpenseList =
+            findViewById<TextView>(R.id.tvExpenseList)
+
+        val healthGauge =
+            findViewById<ProgressBar>(R.id.healthGauge)
 
         val expenses = ExpenseStore.getAll()
 
@@ -67,11 +143,14 @@ class MainActivity : AppCompatActivity() {
         text += "\nCATEGORY TOTALS:\n"
 
         val totals = ExpenseStore.categoryTotals()
+
         for ((cat, amount) in totals) {
             text += "$cat = R$amount\n"
         }
 
         tvExpenseList.text = text
-        healthGauge.progress = total.toInt()
+
+        healthGauge.progress =
+            total.toInt().coerceAtMost(10000)
     }
 }
